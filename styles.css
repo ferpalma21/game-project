@@ -1,0 +1,9 @@
+body{
+  margin: 0 auto;
+}
+
+.background{
+  background-color: lightblue;
+  height: 600px;
+  width: 100%;
+}
