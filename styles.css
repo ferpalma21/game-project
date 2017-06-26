@@ -4,6 +4,14 @@ body{
 
 .background{
   background-color: lightblue;
-  height: 600px;
+  height: 400px;
   width: 100%;
+}
+
+.air{
+  background-color:;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  height: 40px;
 }
