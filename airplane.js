@@ -1,37 +1,61 @@
-function Airplane(){
-  this._height = height;
-  this._speedY = 10;
-  this.planePos = $('#plane').position().top;
+function Airplane(x, y){
+  this.speedY = 10;
+  this.planePosX = x;
+  this.planePosY = y;
+}
+
+function arrowDown(e){
+  return e.keycode === 40;
+}
+
+function arrowUp(e){
+  return e.keycode === 38;
+}
+
+function arrowLeft(e){
+  return e.keycode === 37;
+}
+
+function arrowRight(e){
+  return e.keycode === 39;
+}
+
+function downTheLimit(planePosY){
+  return planePosY < board.limitTop;
+}
+
+function upperTheLimit(planePosY){
+  return planePosY > board.limitBottom;
+}
+
+function rightOfTheLimit(planePosX){
+  return planePosX > board.limitLeft;
+}
+
+function leftOfTheLimit(planePosX){
+  return planePosX < (board.limitRight/2);
 }
 
 
-Airplane.prototype.moveUp = function(){
-  $(document).keydown(function(event){
-    if(event.keycode === 40 && this._height>limitYTop){
-      $('.air').css({top: this.planePos += this.speedY});
-    }else{
-      return "DEAD";
+$(document).keydown(function(event){
+    var planePosY = $('.air').position().top;
+    var planePosX = $('.air').position().left;
+    var speedY = 10;
+    var speedX = 10;
+
+    if( arrowDown(event) && downTheLimit(planePosY) ){
+      $('.air').css({top: planePosY += speedY});
+    }else if(arrowUp(event) && upperTheLimit(planePosY)){
+      $('.air').css({top: planePosY -= speedY});
+    }else if(arrowRight(event) && leftOfTheLimit(planePosX)){
+      $('.air').css({left: planePosX += speedX});
+    }else if (arrowLeft(event) && rightOfTheLimit(planePosX)) {
+      $('.air').css({left: planePosX -= speedX});
     }
-  });
-};
+});
 
-
-Airplane.prototype.moveDown = function(){
-  $(document).keydown(function(event){
-    if(event.keydown === 38 && this._height<limitYBottom){
-        $('.air').css({top: this.planePos -= this.speedY});
-      }else{
-        return "DEAD";
-      }
-  });
-};
 
 
 Airplane.prototype.fire = function(){
 
 };
-
-/*
-$(document).ready(function(){
-    $(document).keydown(function(e))
-});*/
