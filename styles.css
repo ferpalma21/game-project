@@ -8,9 +8,11 @@ body{
   height: 500px;
   width: 100%;
 }
+.background2{
+  background-image: url(./img/sky_cluds2.jpg)
+}
 
 .air{
-  background-color:;
   position: relative;
   top: 50px;
   left: 50px;
@@ -18,8 +20,15 @@ body{
 }
 
 .obstacles{
-  background-color: red;
+  background-image: url(./img/bird-easy.png);
+  background-size: cover;
   height: 50px;
-  width: 50px;
+  width: 80px;
   position: absolute;
+}
+
+.misil{
+  background-color: black;
+  height: 5px;
+  width: 10px;
 }

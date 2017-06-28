@@ -1,3 +1,4 @@
+//Declaring the obstacle object, with all the properties
 function Obstacles (x, y, speed, obstacleNumber){
   this.posObsta = ["poc", "easy", "middle", "hard", "xHard"];
   this.random = this.randomObstacle();
@@ -12,12 +13,16 @@ Obstacles.prototype.randomObstacle = function (){
 };
 
 Obstacles.prototype.getRandomY = function () {
-  return Math.floor(Math.random()*550);
+  return Math.floor(Math.random()*450);
 };
 
 Obstacles.prototype.createObstacle = function (obstacleNumber) {
+  // The 100% of the screen
   var width = $(window).width();
+  /*Declaring the new obstacle by adding a class (addClass) an attribute (attr)
+  inside the attribute we declare the name of the id and add a variable (number) */
   var newObstacle = $('<div>').addClass('obstacles').attr('id', 'obstacle' +
-  obstacleNumber).css({top: this.obsPosY, left: width});
+  obstacleNumber).css({top: this.obsPosY, left: width-50});
+  //We create the obstacle by adding this div class to the obstacle
   $('#board').append(newObstacle);
 };
