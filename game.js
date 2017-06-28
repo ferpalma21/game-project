@@ -53,7 +53,7 @@ Game.prototype.crash = function(obstacleId) {
   var obsLeftPos = $('#' + obstacleId).position().left;
   var obsHeightPos = $('#' + obstacleId).position().top;
   if (planePosY > obsHeightPos - 40 && planePosY + planeHeight < obsHeightPos + 90 &&
-    planePosX + planeWidth < obsLeftPos && planePosX + planeWidth > obsLeftPos - 30 ){
+    planePosX + planeWidth < obsLeftPos && planePosX + planeWidth > obsLeftPos - 30){
     return true;
   }
 };

@@ -19,6 +19,18 @@ function arrowLeft(e) {
 function arrowRight(e) {
   return e.keyCode === 39;
 }
+function rightDown(e) {
+  return e.keyCode === 39 && e.keyCode === 40;
+}
+function rightUp(e) {
+  return e.keyCode === 39 && e.keyCode === 38;
+}
+function leftDown(e) {
+  return e.keyCode === 37 && e.keyCode === 40;
+}
+function leftUp(e) {
+  return e.keyCode === 
+}
 function downTheLimit(planePosY) {
   return planePosY < board.limitBottom;
 }
