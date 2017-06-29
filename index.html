@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script type="text/javascript" src="./lib/jquery-3.2.1/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="./lib/jquery-collision/jquery-collision.js"></script>
     <script type="text/javascript" src="./board.js"></script>
+    <script type="text/javascript" src="./misil.js"></script>
     <script type="text/javascript" src="./airplane.js"></script>
     <script type="text/javascript" src="./obstacles.js"></script>
     <script type="text/javascript" src="./boss.js"></script>
@@ -12,9 +14,13 @@
     <title>AirComVade</title>
   </head>
   <body>
+  <div id="background2"></div>
   <div class="background" id="board">
-    <div class="background2"> </div>
       <img id="plane" class="air" src="./img/fighter-plane.png" alt="fighter">
+  </div>
+  <div id="data">
+    <div class="timer"></div>
+    <div class="score"></div>
   </div>
   </body>
 </html>

@@ -6,10 +6,26 @@ body{
   background-image: url(./img/sky_clouds.jpg);
   background-position: center;
   height: 500px;
-  width: 100%;
+  width: 1000;
+  left: 0;
 }
-.background2{
-  background-image: url(./img/sky_cluds2.jpg)
+#background2{
+
+}
+.clouds{
+  background-image: url(./img/cloud.jpg);
+  background-position:center;
+  height: 500px;
+}
+
+#data{
+  height: 150px;
+  width: 100%;
+  background-color: silver;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 45px;
+  left: 200px;
 }
 
 .air{
@@ -31,4 +47,5 @@ body{
   background-color: black;
   height: 5px;
   width: 10px;
+  position: absolute;
 }

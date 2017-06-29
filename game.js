@@ -1,6 +1,4 @@
-var airplane = new Airplane(10, 10);
 var board = new Board(0, 1000, 0, 500);
-var boss = new Boss(450, 0, 20);
 
 function Game() {
   this.gameObstacles = [];
@@ -16,7 +14,7 @@ Game.prototype.addObstacles = function() {
   this.intervalObstacleCreation = setInterval(function() {
     that.obstacleId++;
     var obstacles = new Obstacles(0, 0, 0, that.obstacleId);
-  }, 3000);
+  }, 3 * 1000);
 };
 
 // Game.prototype.removeObstacle = function() {
@@ -29,7 +27,7 @@ Game.prototype.moveObstacles = function() {
   that = this;
   var intervalMoveObsta = setInterval(function() {
     var obstacleArray = $('.obstacles');
-    var speed = 30;
+    var speed = 20;
     for (i = 0; i < obstacleArray.length; i++) {
       var obstacleId = obstacleArray[i].id;
       if (that.crash(obstacleId)) {
@@ -53,13 +51,20 @@ Game.prototype.crash = function(obstacleId) {
   var obsLeftPos = $('#' + obstacleId).position().left;
   var obsHeightPos = $('#' + obstacleId).position().top;
   if (planePosY > obsHeightPos - 40 && planePosY + planeHeight < obsHeightPos + 90 &&
-    planePosX + planeWidth < obsLeftPos && planePosX + planeWidth > obsLeftPos - 30){
+    planePosX < obsLeftPos + 50 && planePosX + planeWidth > obsLeftPos - 5){
     return true;
   }
 };
 
 
 
+$(document).ready(function() {
+  var airplane = new Airplane(10, 10);
+  var boss = new Boss(450, 0, 20);
+  var misil = new Misil();
+  misil.createMisil();
+
+});
 
 
 var game = new Game();
