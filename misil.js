@@ -6,6 +6,7 @@ function Misil (numberId) {
     this.numberId = 0;
     this.collision();
     this.collisionTrue = false;
+    
   }
 
 

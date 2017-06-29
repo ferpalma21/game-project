@@ -6,8 +6,16 @@ function Game() {
   this.addObstacles();
   this.moveObstacles();
   //this.intervalObstacleCreation;
+
   this.misilId = 0;
   //this.removeObstacle();
+  this.airplane = new Airplane();
+  this.keyboard = new Keyboard();
+  //Airplane Movements
+  //Pressing the key
+  $(document).on('keydown', this.airplane.keyboardEventDown.bind(this.airplane));
+  //Releasing the key
+  $(document).on('keyup', this.airplane.keyboardEventUp.bind(this.airplane));
 }
 
 Game.prototype.addObstacles = function() {
@@ -59,8 +67,10 @@ function checkAirplaneCollision() {
 
 
 $(document).ready(function() {
-  var airplane = new Airplane(10, 10);
+  //var airplane = new Airplane(10, 10);
+  var game = new Game();
   var boss = new Boss(450, 0, 20);
+
 
   $(document).keydown(function(event) {
     game.misilId++;
@@ -70,6 +80,3 @@ $(document).ready(function() {
   });
 
 });
-
-
-var game = new Game();
