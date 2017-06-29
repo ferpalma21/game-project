@@ -1,4 +1,4 @@
-var board = new Board(0, 1000, 0, 500);
+var board = new Board(0, 1000, 0, 450);
 
 function Game() {
   this.gameObstacles = [];
@@ -6,6 +6,7 @@ function Game() {
   this.addObstacles();
   this.moveObstacles();
   this.intervalObstacleCreation;
+  this.misilId = 0;
   //this.removeObstacle();
 }
 
@@ -30,39 +31,39 @@ Game.prototype.moveObstacles = function() {
     var speed = 20;
     for (i = 0; i < obstacleArray.length; i++) {
       var obstacleId = obstacleArray[i].id;
-      if (that.crash(obstacleId)) {
-        clearInterval(intervalMoveObsta);
-        clearInterval(that.intervalObstacleCreation);
-        alert("STOP");
-      }
       var leftPos = $('#' + obstacleId).position().left;
       $('#' + obstacleId).css({
         left: leftPos -= speed
       });
     }
-  }, 150);
+    if (checkAirplaneCollision()) {
+      clearInterval(intervalMoveObsta);
+      clearInterval(that.intervalObstacleCreation);
+      alert("STOP");
+    }
+},150);
 };
 
-Game.prototype.crash = function(obstacleId) {
-  var planePosY = $('.air').position().top;
-  var planePosX = $('.air').position().left;
-  var planeWidth = $('.air').width();
-  var planeHeight = $('.air').height();
-  var obsLeftPos = $('#' + obstacleId).position().left;
-  var obsHeightPos = $('#' + obstacleId).position().top;
-  if (planePosY > obsHeightPos - 40 && planePosY + planeHeight < obsHeightPos + 90 &&
-    planePosX < obsLeftPos + 50 && planePosX + planeWidth > obsLeftPos - 5){
-    return true;
+function checkAirplaneCollision() {
+  if($(".air").collision(".obstacles").length>0){
+      console.log("WOW");
+      return true;
   }
-};
+}
+
 
 
 
 $(document).ready(function() {
   var airplane = new Airplane(10, 10);
   var boss = new Boss(450, 0, 20);
-  var misil = new Misil();
-  misil.createMisil();
+
+  $(document).keydown(function(event) {
+    game.misilId++;
+    if (launchMisil(event)){
+      misil = new Misil(game.misilId);
+    }
+  });
 
 });
 

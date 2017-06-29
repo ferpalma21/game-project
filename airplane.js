@@ -149,9 +149,6 @@ $(document).keydown(function(event) {
   var planePosX = $('.air').position().left;
   var speedY = 20;
   var speedX = 30;
-  if (event.keyCode === 77){
-    
-  }
   if (arrowDown(event) && downTheLimit(planePosY)) {
     $('.air').css({
       top: planePosY += speedY

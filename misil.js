@@ -1,37 +1,35 @@
-function Misil () {
+
+function Misil (numberId) {
     this.posMisilX = $('.air').position().left + 100;
     this.posMisilY = $('.air').position().top + 40;
+    this.createMisil(numberId);
+    this.numberId = 0;
+    this.collision();
   }
 
-Misil.prototype.fire = function () {
-  this.createMisil();
-  this.moveMisil();
-};
 
-Misil.prototype.createMisil = function () {
+
+Misil.prototype.createMisil = function (numberId) {
   console.log(this.posMisilY, this.posMisilX);
-  var newMisil = $('<div>').addClass('misil').attr('id', 'misil').css({top: this.posMisilY, left:this.posMisilX});
+  var newMisil = $('<div>').addClass('misil').attr('id', 'misil' +
+  numberId).css({top: this.posMisilY, left:this.posMisilX}).animate({"left": "+=1230"}, 3000, "linear");
   $('#board').append(newMisil);
-  this.moveMisil();
+  checkMisilCollision();
 };
 
 
-Misil.prototype.moveMisil = function () {
-  var intervalMoveMisil = setInterval(function () {
-  var misilArray = $('.misil');
-  var speed = 5;
-  for (var i = 0; i < misilArray.length ; i++){
-      var misilId = misilArray[i].id;
-      var leftPos = $('#'+misilId).position().left;
-      $('#'+misilId).css({left: leftPos += speed });
-      checkCollision();
-  }}, 100);
+Misil.prototype.collision = function () {
+  checkMisilCollision();
 };
 
-function checkCollision() {
+function checkMisilCollision() {
   if($(".misil").collision(".obstacles").length>0){
       console.log("PUUUUUMMMM");
   }
+}
+
+function launchMisil (e){
+  return e.keyCode === 77;
 }
 
 

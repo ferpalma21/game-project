@@ -18,7 +18,7 @@ body{
   height: 500px;
 }
 
-#data{
+/*#data{
   height: 150px;
   width: 100%;
   background-color: silver;
@@ -26,7 +26,7 @@ body{
   text-align: center;
   line-height: 45px;
   left: 200px;
-}
+}*/
 
 .air{
   position: relative;
