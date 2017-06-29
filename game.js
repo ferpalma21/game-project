@@ -5,7 +5,7 @@ function Game() {
   this.obstacleId = 0;
   this.addObstacles();
   this.moveObstacles();
-  this.intervalObstacleCreation;
+  //this.intervalObstacleCreation;
   this.misilId = 0;
   //this.removeObstacle();
 }
@@ -26,22 +26,26 @@ Game.prototype.addObstacles = function() {
 
 Game.prototype.moveObstacles = function() {
   that = this;
-  var intervalMoveObsta = setInterval(function() {
+  // var intervalMoveObsta = setInterval(function() {
     var obstacleArray = $('.obstacles');
-    var speed = 20;
+    // var speed = 20;
     for (i = 0; i < obstacleArray.length; i++) {
       var obstacleId = obstacleArray[i].id;
-      var leftPos = $('#' + obstacleId).position().left;
-      $('#' + obstacleId).css({
-        left: leftPos -= speed
-      });
+      var obstacleX = $('#obstacle'+obstacleNumber).position().left;
+      if(obstacleX < 0){
+        $('#obstacle'+obstacleNumber).remove();
+      }
+      // // var leftPos = $('#' + obstacleId).position().left;
+      // // $('#' + obstacleId).css({
+      // //   left: leftPos -= speed
+      // });
     }
-    if (checkAirplaneCollision()) {
-      clearInterval(intervalMoveObsta);
-      clearInterval(that.intervalObstacleCreation);
-      alert("STOP");
-    }
-},150);
+    // if (checkAirplaneCollision()) {
+    //   clearInterval(intervalMoveObsta);
+    //   clearInterval(that.intervalObstacleCreation);
+    //   alert("STOP");
+    // }
+// },150);
 };
 
 function checkAirplaneCollision() {

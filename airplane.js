@@ -22,8 +22,8 @@ $(document).keydown(function(e) {
     if (leftDown[37] && leftDown[40] && downTheLimit(planePosY) &&
     rightOfTheLimit(planePosX)) {
       $('.air').css({
-        top: planePosY += (speedY / 2),
-        left: planePosX -= (speedX / 2),
+        top: planePosY += (speedY),
+        left: planePosX -= (speedX),
       });
     }
   }
@@ -47,8 +47,8 @@ $(document).keydown(function(e) {
     if (leftUp[37] && leftUp[38] && upperTheLimit(planePosY) &&
     rightOfTheLimit(planePosX)) {
       $('.air').css({
-        top: planePosY -= (speedY / 2),
-        left: planePosX -= (speedX / 2),
+        top: planePosY -= (speedY),
+        left: planePosX -= (speedX),
       });
     }
   }
@@ -72,8 +72,8 @@ $(document).keydown(function(e) {
     if (rightUp[39] && rightUp[38] && upperTheLimit(planePosY) &&
     leftOfTheLimit(planePosX)) {
       $('.air').css({
-        top: planePosY -= (speedY / 2),
-        left: planePosX += (speedX / 2),
+        top: planePosY -= (speedY),
+        left: planePosX += (speedX+10),
       });
     }
   }
@@ -97,8 +97,8 @@ $(document).keydown(function(e) {
     if (rightDown[39] && rightDown[40] && downTheLimit(planePosY) &&
     leftOfTheLimit(planePosX)) {
       $('.air').css({
-        top: planePosY += (speedY / 2),
-        left: planePosX += (speedX / 2),
+        top: planePosY += (speedY),
+        left: planePosX += (speedX+10),
       });
     }
   }

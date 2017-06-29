@@ -5,6 +5,7 @@ function Misil (numberId) {
     this.createMisil(numberId);
     this.numberId = 0;
     this.collision();
+    this.collisionTrue = false;
   }
 
 
@@ -12,9 +13,16 @@ function Misil (numberId) {
 Misil.prototype.createMisil = function (numberId) {
   console.log(this.posMisilY, this.posMisilX);
   var newMisil = $('<div>').addClass('misil').attr('id', 'misil' +
-  numberId).css({top: this.posMisilY, left:this.posMisilX}).animate({"left": "+=1230"}, 3000, "linear");
+  numberId).css({
+    top: this.posMisilY, left:this.posMisilX
+  }).animate({
+    "left": "+=1230"}, 3000, "linear");
   $('#board').append(newMisil);
-  checkMisilCollision();
+
+   if(this.collision){
+    // $('#misil'+numberId).remove();
+    // $('#obstacle'+obstacleNumber).remove();
+   }
 };
 
 
@@ -24,6 +32,7 @@ Misil.prototype.collision = function () {
 
 function checkMisilCollision() {
   if($(".misil").collision(".obstacles").length>0){
+    this.collisionTrue=true;
       console.log("PUUUUUMMMM");
   }
 }
