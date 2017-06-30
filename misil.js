@@ -42,6 +42,9 @@ function checkMisilCollision() {
       console.log("PUUUUUMMMM");
       score++;
       $('#points').text(score);
+      if(score === 10){
+          $("#win").removeClass("winh");
+      }
   }
 }
 

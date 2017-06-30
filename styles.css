@@ -86,4 +86,19 @@ span{
   font-size: 90px;
   color: black;
   border-radius: 40px;
+  border: white;
+}
+
+#win{
+  position: fixed;
+  height: 400px;
+  width: 200px;
+  left: 200px;
+  top: .20px;
+  font-size: 100px;
+  text-decoration: none;
+  color: black;
+}
+.winh{
+  display: none;
 }
