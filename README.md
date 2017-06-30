@@ -1,4 +1,4 @@
-TweeT-FighT
+TweeT-WaR
 
 A classic arcade horizontal view game, where you control an airplane and you have to destroy the enemies.
 
