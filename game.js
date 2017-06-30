@@ -9,13 +9,13 @@ function Game() {
 
   this.misilId = 0;
   //this.removeObstacle();
-  this.airplane = new Airplane();
-  this.keyboard = new Keyboard();
+  // this.airplane = new Airplane();
+  // this.keyboard = new Keyboard();
   //Airplane Movements
   //Pressing the key
-  $(document).on('keydown', this.airplane.keyboardEventDown.bind(this.airplane));
+  // $(document).on('keydown', this.airplane.keyboardEventDown.bind(this.airplane));
   //Releasing the key
-  $(document).on('keyup', this.airplane.keyboardEventUp.bind(this.airplane));
+  // $(document).on('keyup', this.airplane.keyboardEventUp.bind(this.airplane));
 }
 
 Game.prototype.addObstacles = function() {
@@ -23,7 +23,7 @@ Game.prototype.addObstacles = function() {
   this.intervalObstacleCreation = setInterval(function() {
     that.obstacleId++;
     var obstacles = new Obstacles(0, 0, 0, that.obstacleId);
-  }, 3 * 1000);
+  }, (3 * 1000)/(score+3));
 };
 
 // Game.prototype.removeObstacle = function() {
@@ -34,26 +34,22 @@ Game.prototype.addObstacles = function() {
 
 Game.prototype.moveObstacles = function() {
   that = this;
-  // var intervalMoveObsta = setInterval(function() {
+   var intervalMoveObsta = setInterval(function() {
     var obstacleArray = $('.obstacles');
-    // var speed = 20;
+     var speed = 20;
     for (i = 0; i < obstacleArray.length; i++) {
       var obstacleId = obstacleArray[i].id;
-      var obstacleX = $('#obstacle'+obstacleNumber).position().left;
-      if(obstacleX < 0){
-        $('#obstacle'+obstacleNumber).remove();
-      }
-      // // var leftPos = $('#' + obstacleId).position().left;
-      // // $('#' + obstacleId).css({
-      // //   left: leftPos -= speed
-      // });
+      var leftPos = $('#' + obstacleId).position().left;
+      $('#' + obstacleId).css({
+        left: leftPos -= speed
+      });
     }
-    // if (checkAirplaneCollision()) {
-    //   clearInterval(intervalMoveObsta);
-    //   clearInterval(that.intervalObstacleCreation);
-    //   alert("STOP");
-    // }
-// },150);
+    if (checkAirplaneCollision()) {
+      clearInterval(intervalMoveObsta);
+      clearInterval(that.intervalObstacleCreation);
+      $("#loose").removeClass("looseh");
+    }
+},150);
 };
 
 function checkAirplaneCollision() {
@@ -69,7 +65,7 @@ function checkAirplaneCollision() {
 $(document).ready(function() {
   //var airplane = new Airplane(10, 10);
   var game = new Game();
-  var boss = new Boss(450, 0, 20);
+  //var boss = new Boss(450, 0, 20);
 
 
   $(document).keydown(function(event) {

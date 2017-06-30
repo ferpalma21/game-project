@@ -23,7 +23,8 @@ Obstacles.prototype.createObstacle = function (obstacleNumber) {
   inside the attribute we declare the name of the id and add a variable (number) */
   var newObstacle = $('<div>').addClass('obstacles').attr('id', 'obstacle' +
   obstacleNumber).css({top: this.obsPosY, left: width-50}).animate({
-    "left": "-80"}, 5000, "linear");
+    "left": "-80"}, 5000 , "linear");
   //We create the obstacle by adding this div class to the obstacle
   $('#board').append(newObstacle);
+
 };

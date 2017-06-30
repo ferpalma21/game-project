@@ -18,15 +18,19 @@ body{
   height: 500px;
 }
 
-/*#data{
-  height: 150px;
-  width: 100%;
-  background-color: silver;
-  border-radius: 5px;
+#points{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 50px;
+  width: 70px;
+  background: darkblue;
+  color: white;
+  border-radius: 10px;
   text-align: center;
   line-height: 45px;
-  left: 200px;
-}*/
+
+}
 
 .air{
   position: relative;
@@ -36,7 +40,7 @@ body{
 }
 
 .obstacles{
-  background-image: url(./img/bird-easy.png);
+  background-image: url(./img/tweevil.png);
   background-size: cover;
   height: 50px;
   width: 80px;
@@ -48,4 +52,30 @@ body{
   height: 5px;
   width: 10px;
   position: absolute;
+}
+
+a{
+  position: absolute;
+  height: 400px;
+  width: 200px;
+  left: 400px;
+  top: 200px;
+  font-size: 100px;
+  text-decoration: none;
+  color: black;
+}
+
+#loose{
+  position: fixed;
+  height: 400px;
+  width: 200px;
+  left: 200px;
+  top: .20px;
+  font-size: 100px;
+  text-decoration: none;
+  color: black;
+}
+
+.looseh{
+  display: none;
 }
